@@ -3,7 +3,7 @@
 <suite name="AV test">
     <test name="Test">
         <classes>
-            <class name="test"/>
+            <class name="addingAndRemovingTest"/>
         </classes>
     </test>
 </suite>

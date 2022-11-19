@@ -16,9 +16,9 @@ public abstract class DriverManager {
     public abstract void createDriver();
 
     public static WebDriver getDriver() {
-        webDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        webDriver.get().manage().timeouts().scriptTimeout(Duration.ofSeconds(20));
-        webDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        webDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
+        webDriver.get().manage().timeouts().scriptTimeout(Duration.ofSeconds(7));
+        webDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(7));
         return webDriver.get();
     }
 

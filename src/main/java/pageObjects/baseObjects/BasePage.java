@@ -80,8 +80,8 @@ public abstract class BasePage {
     }
 
     protected void click(By locator) {
-        log.debug("I'm click by :: " + locator);
         verifyElementClickable(locator);
+        log.debug("I'm click by :: " + locator);
         findElement(locator).click();
     }
 
