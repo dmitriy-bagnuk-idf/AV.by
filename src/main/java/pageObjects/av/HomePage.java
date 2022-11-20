@@ -18,6 +18,11 @@ public class HomePage extends BasePage {
     private final By logo = By.xpath("//div[@class='header__logo']");
     private final By userMenu = By.xpath("//li[contains(@class, 'user')]");
     private final By logoutBtn = By.xpath("//a[contains(@class, 'logout')]");
+    private final By userSettingsBtn = By.xpath("//a[contains(@href, 'settings')]");
+    private final By popup = By.xpath("//div[contains(@class, 'opened')]");
+    private final By userMsgBtn = By.xpath("//li[contains(@class, 'messages')]");
+    private final By userMsgBox = By.xpath("//div[@class='drawer__title']/h2");
+    private final By closeUserMsgBtn = By.xpath("//button[@title='Закрыть']");
 
     private By getTopCar(int count) {
         return By.xpath("(//button[@class='bookmark'])[" + count + "]");
@@ -57,7 +62,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage clickBookmarks() {
+    public HomePage clickBookmarksBtn() {
         log.debug("Click bookmarks btn");
         click(bookmarksBtn);
         return this;
@@ -98,7 +103,7 @@ public class HomePage extends BasePage {
 
     public HomePage clickLogo() {
         log.debug("Click logo - redirect to home page");
-        click(logo);
+        clickWithoutVerifyClickable(logo);
         return this;
     }
 
@@ -111,6 +116,52 @@ public class HomePage extends BasePage {
                 .perform();
         clickLogo();
         verifyElementClickable(loginBtn);
+        return this;
+    }
+
+    public HomePage goToUserSettings() {
+        log.debug("Go to user settings");
+        actions
+                .moveToElement(findElement(userMenu))
+                .click(findElement(userSettingsBtn))
+                .build()
+                .perform();
+        return this;
+    }
+
+    public HomePage verifyPopupMsg() {
+        log.debug("Verify popup message");
+        Assert.assertTrue(findElement(popup).isDisplayed());
+        return this;
+    }
+
+    public HomePage goToCarPage() {
+        log.debug("Go to interesting today car № " + properties.getProperty("numberTopCar") + " page");
+        click(getNameInterestingTodayCar(Integer.parseInt(properties.getProperty("numberTopCar"))));
+        return this;
+    }
+
+    public HomePage clickUserMsgBtn() {
+        log.debug("Click user message btn");
+        click(userMsgBtn);
+        return this;
+    }
+
+    public HomePage verifyUserMsgBox() {
+        log.debug("Verify user message box is displayed");
+        Assert.assertTrue(findElement(userMsgBox).isEnabled());
+        return this;
+    }
+
+    public HomePage verifyUserMsgBoxText() {
+        log.debug("Verify user message box text");
+        Assert.assertTrue(findElement(userMsgBox).getText().contains("Диалоги"));
+        return this;
+    }
+
+    public HomePage clickCloseUserMsgBtn() {
+        log.debug("Click close user message box btn");
+        click(closeUserMsgBtn);
         return this;
     }
 }

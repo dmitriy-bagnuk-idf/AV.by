@@ -33,7 +33,7 @@ public class addingAndRemovingTest extends BaseTest {
                 .addInterestingTodayCarToBookmarks();
         String nameInterestingTodayCar = get(HomePage.class).nameInterestingTodayCar();
         get(HomePage.class)
-                .clickBookmarks();
+                .clickBookmarksBtn();
         get(BookmarksPage.class)
                 .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
@@ -47,7 +47,7 @@ public class addingAndRemovingTest extends BaseTest {
             enabled = true)
     public void deleteCar() {
         get(HomePage.class)
-                .clickBookmarks();
+                .clickBookmarksBtn();
         get(BookmarksPage.class)
                 .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
@@ -65,7 +65,7 @@ public class addingAndRemovingTest extends BaseTest {
         int countCarsToBookmark = get(HomePage.class).countCarsToBookmark();
         get(HomePage.class)
                 .addAllTopCarsToBookmarks()
-                .clickBookmarks();
+                .clickBookmarksBtn();
         get(BookmarksPage.class)
                 .verifyCarsInBookmarksIsDisplayed()
                 .verifyCounterBookmarks();
@@ -78,7 +78,7 @@ public class addingAndRemovingTest extends BaseTest {
             enabled = true)
     public void deleteCarsTest() {
         get(HomePage.class)
-                .clickBookmarks();
+                .clickBookmarksBtn();
         get(BookmarksPage.class)
                 .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
@@ -87,7 +87,7 @@ public class addingAndRemovingTest extends BaseTest {
     }
 
     @AfterMethod
-    public void log() {
+    public void postconditions() {
         get(HomePage.class)
                 .logout();
     }

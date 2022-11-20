@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AV test">
-    <test name="Test">
+<suite name="AV test with Selenium">
+
+    <test name="Adding and removing entity test" enabled="false">
         <classes>
             <class name="addingAndRemovingTest"/>
         </classes>
     </test>
+
+    <test name="Input for limit values test" enabled="false">
+        <classes>
+            <class name="inputForLimitValuesTest"/>
+        </classes>
+    </test>
+
+    <test name="Popup message test" enabled="false">
+        <classes>
+            <class name="popupMsgTest"/>
+        </classes>
+    </test>
+
+    <test name="Dialog box test" enabled="true">
+        <classes>
+            <class name="dialogBoxTest"/>
+        </classes>
+    </test>
+
 </suite>

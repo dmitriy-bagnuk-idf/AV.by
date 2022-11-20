@@ -13,6 +13,7 @@ public class BookmarksPage extends BasePage {
     private final By counterBookmarks = By.xpath("//a[@aria-current='page']/small");
     private final By logo = By.xpath("//div[@class='header__logo']");
     private final By getNameCarInBookmarks = By.xpath("(//span[@class='link-text'])");
+    private final By popup = By.xpath("//div[contains(@class, 'opened')]");
     private By getCarsInBookmarks(int count) {
         return By.xpath("(//button[@aria-busy])[" + count + "]");
     }
@@ -71,5 +72,11 @@ public class BookmarksPage extends BasePage {
     public String nameCarInBookmarks() {
         log.debug("Get name car in bookmarks");
         return findElement(getNameCarInBookmarks).getText();
+    }
+
+    public BookmarksPage verifyPopupMsg() {
+        log.debug("Verify popup message");
+        Assert.assertTrue(findElement(popup).isDisplayed());
+        return this;
     }
 }
