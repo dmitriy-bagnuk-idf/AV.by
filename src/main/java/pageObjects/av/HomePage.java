@@ -23,6 +23,7 @@ public class HomePage extends BasePage {
     private final By userMsgBtn = By.xpath("//li[contains(@class, 'messages')]");
     private final By userMsgBox = By.xpath("//div[@class='drawer__title']/h2");
     private final By closeUserMsgBtn = By.xpath("//button[@title='Закрыть']");
+    private final By userAdBtn = By.xpath("//span[text()='Мои объявления']");
 
     private By getTopCar(int count) {
         return By.xpath("(//button[@class='bookmark'])[" + count + "]");
@@ -162,6 +163,16 @@ public class HomePage extends BasePage {
     public HomePage clickCloseUserMsgBtn() {
         log.debug("Click close user message box btn");
         click(closeUserMsgBtn);
+        return this;
+    }
+
+    public HomePage goToUserAd() {
+        log.debug("Go to user ad");
+        actions
+                .moveToElement(findElement(userMenu))
+                .click(findElement(userAdBtn))
+                .build()
+                .perform();
         return this;
     }
 }

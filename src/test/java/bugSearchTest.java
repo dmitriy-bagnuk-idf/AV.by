@@ -5,10 +5,9 @@ import org.testng.annotations.Test;
 import pageObjects.av.HomePage;
 import pageObjects.av.LoginPage;
 import pageObjects.av.UserSettingsPage;
-import pageObjects.av.dataProvider.dataForAVby;
 import pageObjects.baseObjects.BaseTest;
 
-public class inputForLimitValuesTest extends BaseTest {
+public class bugSearchTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)
@@ -24,16 +23,33 @@ public class inputForLimitValuesTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Checking the new password field for boundary values",
-            dataProviderClass = dataForAVby.class,
-            dataProvider = "password data",
+    @Test(testName = "Old psw hide switch in the user settings (bug search)",
+            priority = 1,
             enabled = true)
-    public void limitValuesTest(String password) {
+    public void oldPswHideSwitch() {
         get(HomePage.class)
                 .goToUserSettings();
         get(UserSettingsPage.class)
                 .verifyUserSettingsAreOpen()
-                .enterDataInNewPswField(password);
+                .clickChangePswBtn()
+                .clickHideSwitchOldPswBtn()
+                .verifyOldPswIsNotHidden()
+                .verifyNewPswIsHidden();
+
+    }
+
+    @Test(testName = "New psw hide switch in the user settings (bug search)",
+            priority = 2,
+            enabled = true)
+    public void newPswHideSwitch() {
+        get(HomePage.class)
+                .goToUserSettings();
+        get(UserSettingsPage.class)
+                .verifyUserSettingsAreOpen()
+                .clickChangePswBtn()
+                .clickHideSwitchNewPswBtn()
+                .verifyNewPswIsNotHidden()
+                .verifyOldPswIsHidden();
     }
 
     @AfterMethod

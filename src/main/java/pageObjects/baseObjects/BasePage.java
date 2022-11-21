@@ -26,7 +26,7 @@ public abstract class BasePage {
 
     protected BasePage() {
         driver = getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         actions = new Actions(driver);
         properties = getProperties();
     }
@@ -120,12 +120,12 @@ public abstract class BasePage {
         for (int counter = 1; counter < 60; counter++) {
             log.debug("Wait element not exist count = " + counter);
             if (driver.findElements(by).size() == 0) {
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
                 return true;
             }
             waitUntil(1);
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         return false;
     }
 

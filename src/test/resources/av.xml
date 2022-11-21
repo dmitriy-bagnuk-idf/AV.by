@@ -20,9 +20,27 @@
         </classes>
     </test>
 
-    <test name="Dialog box test" enabled="true">
+    <test name="Dialog box test" enabled="false">
         <classes>
             <class name="dialogBoxTest"/>
+        </classes>
+    </test>
+
+    <test name="Upload file test" enabled="false">
+        <classes>
+            <class name="uploadFileTest"/>
+        </classes>
+    </test>
+
+    <test name="Invalid data test" enabled="false">
+        <classes>
+            <class name="invalidDataTest"/>
+        </classes>
+    </test>
+
+    <test name="Bug search test" enabled="true">
+        <classes>
+            <class name="bugSearchTest"/>
         </classes>
     </test>
 

@@ -2,19 +2,17 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pageObjects.av.UserAdvertsPage;
 import pageObjects.av.HomePage;
 import pageObjects.av.LoginPage;
-import pageObjects.av.UserSettingsPage;
-import pageObjects.av.dataProvider.dataForAVby;
 import pageObjects.baseObjects.BaseTest;
 
-public class inputForLimitValuesTest extends BaseTest {
+public class uploadFileTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)
                 .open();
     }
-
 
     @BeforeMethod
     public void preconditions() {
@@ -24,16 +22,23 @@ public class inputForLimitValuesTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Checking the new password field for boundary values",
-            dataProviderClass = dataForAVby.class,
-            dataProvider = "password data",
+    @Test(testName = "Upload new photo to the user ad",
             enabled = true)
-    public void limitValuesTest(String password) {
+    public void uploadTest() {
         get(HomePage.class)
-                .goToUserSettings();
-        get(UserSettingsPage.class)
+                .goToUserAd();
+        get(UserAdvertsPage.class)
                 .verifyUserSettingsAreOpen()
-                .enterDataInNewPswField(password);
+                .verifyPhotoNotExistInTheAd()
+                .clickEditAdBtn()
+                .uploadPhotoToAd()
+                .clickSaveAdChangesBtn()
+                .clickLogo();
+        get(HomePage.class)
+                .goToUserAd();
+        get(UserAdvertsPage.class)
+                .verifyUserSettingsAreOpen()
+                .verifyUploadedPhoto();
     }
 
     @AfterMethod

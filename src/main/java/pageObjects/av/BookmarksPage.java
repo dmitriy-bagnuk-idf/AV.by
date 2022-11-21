@@ -5,8 +5,12 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
+import java.util.ArrayList;
+
 @Log4j
 public class BookmarksPage extends BasePage {
+    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+    HomePage homePage = new HomePage();
     private final By bookmarksIsEmpty = By.xpath("//div[@class='bookmarks-empty']");
     private final By favoritesList = By.xpath("//div[@class='listing__items']");
     private final By carsInBookmarks = By.xpath("//button[@aria-busy]");
@@ -19,8 +23,19 @@ public class BookmarksPage extends BasePage {
     }
 
     public BookmarksPage verifyBookmarksAreOpen() {
-        log.debug("Bookmarks page is opened");
-        Assert.assertTrue(getPageUrl().contains("profile/bookmarks"));
+        if (getPageUrl().contains("bookmarks")) {
+            log.debug("Bookmarks page is opened");
+            Assert.assertTrue(getPageUrl().contains("bookmarks"));
+        } else {
+            log.debug("Extra tab open");
+            driver.switchTo().window(tabs.get(1));
+            driver.close();
+            driver.switchTo().window(tabs.get(0));
+            log.debug("Extra tab closed");
+            homePage.goToUserSettings();
+            log.debug("Bookmarks page is opened");
+            Assert.assertTrue(getPageUrl().contains("bookmarks"));
+        }
         return this;
     }
 
