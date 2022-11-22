@@ -22,6 +22,7 @@ public class UserSettingsPage extends BasePage {
     private final By newPhoneNumber = By.id("phoneNumber");
     private final By hideSwitchOldPswBtn = By.xpath("(//button[contains(@class, 'toggle')])[1]");
     private final By hideSwitchNewPswBtn = By.xpath("(//button[contains(@class, 'toggle')])[2]");
+    private final By phoneNumber = By.xpath("//div/b[contains(text(), '375')]");
 
     public UserSettingsPage verifyUserSettingsAreOpen() {
         if (getPageUrl().contains("settings")) {
@@ -175,5 +176,10 @@ public class UserSettingsPage extends BasePage {
         log.debug("Verify new psw is hidden");
         Assert.assertTrue(findElement(newPsw).getAttribute("type").contains("password"));
         return this;
+    }
+
+    public String getPhoneNumber() {
+        log.debug("Get phone number from user settings page");
+        return findElement(phoneNumber).getText();
     }
 }

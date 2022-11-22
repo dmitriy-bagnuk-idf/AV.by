@@ -63,8 +63,8 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage clickBookmarksBtn() {
-        log.debug("Click bookmarks btn");
+    public HomePage goToBookmarks() {
+        log.debug("Go to bookmarks");
         click(bookmarksBtn);
         return this;
     }
@@ -75,8 +75,13 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    public Integer countTopCars() {
+        log.debug("Count top cars");
+        return findElements(carToBookmarkBtn).size();
+    }
+
     public HomePage addAllTopCarsToBookmarks() {
-        int countTopCars = findElements(carToBookmarkBtn).size();
+        int countTopCars = countTopCars();
         while (countTopCars > 0) {
             log.debug("Add to bookmarks car № " + countTopCars);
             click(getTopCar(countTopCars));

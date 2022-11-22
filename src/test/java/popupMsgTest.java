@@ -39,7 +39,7 @@ public class popupMsgTest extends BaseTest {
             enabled = true)
     public void popupMsgBookmarksTest() {
         get(HomePage.class)
-                .clickBookmarksBtn();
+                .goToBookmarks();
         get(BookmarksPage.class)
                 .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()

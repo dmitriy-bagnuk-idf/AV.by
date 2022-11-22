@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AV test with Selenium">
+<suite name="AV test with Selenium" thread-count="1" parallel="tests">
 
-    <test name="Adding and removing entity test" enabled="false">
+    <test name="Adding and removing entity test" enabled="true">
         <classes>
             <class name="addingAndRemovingTest"/>
         </classes>
@@ -14,25 +14,25 @@
         </classes>
     </test>
 
-    <test name="Popup message test" enabled="false">
+    <test name="Popup message test" enabled="true">
         <classes>
             <class name="popupMsgTest"/>
         </classes>
     </test>
 
-    <test name="Dialog box test" enabled="false">
+    <test name="Dialog box test" enabled="true">
         <classes>
             <class name="dialogBoxTest"/>
         </classes>
     </test>
 
-    <test name="Upload file test" enabled="false">
+    <test name="Upload file test" enabled="true">
         <classes>
             <class name="uploadFileTest"/>
         </classes>
     </test>
 
-    <test name="Invalid data test" enabled="false">
+    <test name="Invalid data test" enabled="true">
         <classes>
             <class name="invalidDataTest"/>
         </classes>
@@ -41,6 +41,12 @@
     <test name="Bug search test" enabled="true">
         <classes>
             <class name="bugSearchTest"/>
+        </classes>
+    </test>
+
+    <test name="API test" enabled="true">
+        <classes>
+            <class name="apiTest"/>
         </classes>
     </test>
 
