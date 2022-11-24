@@ -8,7 +8,7 @@ import pageObjects.av.LoginPage;
 import pageObjects.av.UserSettingsPage;
 import pageObjects.baseObjects.BaseTest;
 
-public class popupMsgTest extends BaseTest {
+public class PopupMsgTest extends BaseTest {
 
     @BeforeTest
     public void openPage() {

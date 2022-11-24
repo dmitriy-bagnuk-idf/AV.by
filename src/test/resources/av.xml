@@ -2,52 +2,57 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AV test with Selenium" thread-count="1" parallel="tests">
 
+    <listeners>
+        <listener class-name="testNgUtils.InvokedMethodListener"/>
+    </listeners>
+
     <test name="Adding and removing entity test" enabled="true">
         <classes>
-            <class name="addingAndRemovingTest"/>
-        </classes>
-    </test>
-
-    <test name="Input for limit values test" enabled="false">
-        <classes>
-            <class name="inputForLimitValuesTest"/>
+            <class name="AddingAndRemovingTest"/>
         </classes>
     </test>
 
     <test name="Popup message test" enabled="true">
         <classes>
-            <class name="popupMsgTest"/>
+            <class name="PopupMsgTest"/>
         </classes>
     </test>
 
     <test name="Dialog box test" enabled="true">
         <classes>
-            <class name="dialogBoxTest"/>
+            <class name="DialogBoxTest"/>
         </classes>
     </test>
 
     <test name="Upload file test" enabled="true">
         <classes>
-            <class name="uploadFileTest"/>
+            <class name="UploadFileTest"/>
         </classes>
     </test>
 
     <test name="Invalid data test" enabled="true">
         <classes>
-            <class name="invalidDataTest"/>
+            <class name="InvalidDataTest"/>
         </classes>
     </test>
 
     <test name="Bug search test" enabled="true">
         <classes>
-            <class name="bugSearchTest"/>
+            <class name="BugSearchTest"/>
         </classes>
     </test>
 
     <test name="API test" enabled="true">
         <classes>
-            <class name="apiTest"/>
+            <class name="ApiTest"/>
+        </classes>
+    </test>
+
+    <test name="Input for limit values test" enabled="true">
+        <classes>
+            <class name="InputForLimitValuesTest"/>
         </classes>
     </test>
 
 </suite>
+

@@ -7,7 +7,7 @@ import pageObjects.av.UserSettingsPage;
 import pageObjects.av.dataProvider.dataForAVby;
 import pageObjects.baseObjects.BaseTest;
 
-public class invalidDataTest extends BaseTest {
+public class InvalidDataTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)

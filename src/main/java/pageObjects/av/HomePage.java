@@ -6,12 +6,16 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
+import java.util.ArrayList;
+
 @Log4j
 public class HomePage extends BasePage {
     private final Actions actions = new Actions(driver);
+    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
     private final By closeMsgBtn = By.xpath("//span[text()='Закрыть']");
     private final By cookieBtn = By.xpath("(//div[contains(@class, 'cookie')])[3]");
-    private final By loginBtn = By.xpath("//li[contains(@class, 'login')]");
+    //private final By loginBtn = By.xpath("//li[contains(@class, 'login')]");
+    private final By loginBtn = By.xpath("//a[@href='/login']");
     private final By bookmarksBtn = By.xpath("//li[contains(@class, 'bookmarks')]");
     private final By topCarsBtn = By.partialLinkText("все объявления");
     private final By carToBookmarkBtn = By.xpath("//button[@class='bookmark']");
@@ -48,6 +52,22 @@ public class HomePage extends BasePage {
             verifyPageIsOpen();
         }
         click(cookieBtn);
+        return this;
+    }
+
+    public HomePage verifyHomePageIsOpen() {
+        if (getPageUrl().equals(properties.getProperty("url"))) {
+            log.debug("Home page is opened");
+            Assert.assertEquals(properties.getProperty("url"), getPageUrl());
+        } else {
+            log.debug("Extra tab open");
+            driver.switchTo().window(tabs.get(1));
+            driver.close();
+            driver.switchTo().window(tabs.get(0));
+            log.debug("Extra tab closed");
+            log.debug("Home page is opened");
+            Assert.assertEquals(properties.getProperty("url"), getPageUrl());
+        }
         return this;
     }
 
@@ -109,19 +129,21 @@ public class HomePage extends BasePage {
 
     public HomePage clickLogo() {
         log.debug("Click logo - redirect to home page");
-        clickWithoutVerifyClickable(logo);
+        click(logo);
         return this;
     }
 
     public HomePage logout() {
         log.debug("LogOut");
+        waitVisibilityElement(userMenu);
+        verifyElementClickable(userMenu);
         actions
                 .moveToElement(findElement(userMenu))
-                .click(findElement(logoutBtn))
                 .build()
                 .perform();
+        click(logoutBtn);
         clickLogo();
-        verifyElementClickable(loginBtn);
+        verifyHomePageIsOpen();
         return this;
     }
 

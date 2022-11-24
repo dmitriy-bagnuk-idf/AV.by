@@ -6,6 +6,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import testNgUtils.ExtentReportListener;
+import testNgUtils.InvokedMethodListener;
 import testNgUtils.Listener;
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,7 +16,7 @@ import static driver.DriverManager.closeWebDriver;
 import static driver.DriverManagerFactory.getManager;
 import static propertyHelper.PropertyReader.getProperties;
 @Log4j
-@Listeners({Listener.class, ExtentReportListener.class})
+@Listeners({Listener.class, ExtentReportListener.class, InvokedMethodListener.class})
 
 public abstract class BaseTest {
     protected Properties properties;

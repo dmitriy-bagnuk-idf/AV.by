@@ -15,7 +15,9 @@ public class UserAdvertsPage extends BasePage {
     private final By selectPhotoToAdBtn = By.id("p-48-photo");
     private final By saveAdChangesBtn = By.xpath("//button[@type='submit']");
     private final By uploadedPhoto = By.xpath("//div[@class='uploader__thumb-wrap']");
-    private final By photoInTheAd = By.xpath("//div[@class='mycard__photo-image']");
+    private final By photoInTheAd = By.xpath("//div[contains(@class, 'gallery')]/img");
+    private final By adBtn = By.xpath("//div[@class='mycard__header']");
+    private final By previewPhotoInTheAd = By.xpath("//div[@class='mycard__photo-image']");
     private final By logo = By.xpath("//div[@class='header__logo']");
 
     public UserAdvertsPage verifyUserSettingsAreOpen() {
@@ -57,13 +59,13 @@ public class UserAdvertsPage extends BasePage {
 
     public UserAdvertsPage verifyUploadedPhoto() {
         log.debug("Verify uploaded photo in the add");
-        Assert.assertTrue(findElement(photoInTheAd).isEnabled());
+        Assert.assertTrue(findElement(previewPhotoInTheAd).isEnabled());
         return this;
     }
 
     public UserAdvertsPage verifyPhotoNotExistInTheAd() {
         log.debug("Verify photo doesn't exist in the add");
-        Assert.assertTrue(elementNotExist(photoInTheAd));
+        Assert.assertTrue(elementNotExist(previewPhotoInTheAd));
         return this;
     }
 

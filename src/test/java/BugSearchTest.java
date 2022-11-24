@@ -7,7 +7,7 @@ import pageObjects.av.LoginPage;
 import pageObjects.av.UserSettingsPage;
 import pageObjects.baseObjects.BaseTest;
 
-public class bugSearchTest extends BaseTest {
+public class BugSearchTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)
@@ -32,6 +32,8 @@ public class bugSearchTest extends BaseTest {
         get(UserSettingsPage.class)
                 .verifyUserSettingsAreOpen()
                 .clickChangePswBtn()
+                .enterOldPsw()
+                .enterNewPsw(properties.getProperty("password"))
                 .clickHideSwitchOldPswBtn()
                 .verifyOldPswIsNotHidden()
                 .verifyNewPswIsHidden();
@@ -47,6 +49,8 @@ public class bugSearchTest extends BaseTest {
         get(UserSettingsPage.class)
                 .verifyUserSettingsAreOpen()
                 .clickChangePswBtn()
+                .enterOldPsw()
+                .enterNewPsw(properties.getProperty("password"))
                 .clickHideSwitchNewPswBtn()
                 .verifyNewPswIsNotHidden()
                 .verifyOldPswIsHidden();

@@ -8,7 +8,7 @@ import pageObjects.av.UserSettingsPage;
 import pageObjects.av.dataProvider.dataForAVby;
 import pageObjects.baseObjects.BaseTest;
 
-public class inputForLimitValuesTest extends BaseTest {
+public class InputForLimitValuesTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)

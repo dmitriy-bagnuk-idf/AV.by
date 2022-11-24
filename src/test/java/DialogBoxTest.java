@@ -2,12 +2,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.UserAdvertsPage;
+import pageObjects.av.CarPage;
 import pageObjects.av.HomePage;
 import pageObjects.av.LoginPage;
 import pageObjects.baseObjects.BaseTest;
 
-public class uploadFileTest extends BaseTest {
+public class DialogBoxTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)
@@ -22,23 +22,28 @@ public class uploadFileTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Upload new photo to the user ad",
+    @Test(testName = "Car price changes dialog box display",
+            priority = 1,
             enabled = true)
-    public void uploadTest() {
+    public void carDialogBoxTest() {
         get(HomePage.class)
-                .goToUserAd();
-        get(UserAdvertsPage.class)
-                .verifyUserSettingsAreOpen()
-                .verifyPhotoNotExistInTheAd()
-                .clickEditAdBtn()
-                .uploadPhotoToAd()
-                .clickSaveAdChangesBtn()
-                .clickLogo();
+                .goToCarPage();
+        get(CarPage.class)
+                .clickPriceChangesBtn()
+                .verifyPriceChangesBox()
+                .verifyPriceChangesBoxText()
+                .clickClosePriceChangesBoxBtn();
+    }
+
+    @Test(testName = "Use message dialog box display",
+            priority = 2,
+            enabled = true)
+    public void userMsgDialogBoxTest() {
         get(HomePage.class)
-                .goToUserAd();
-        get(UserAdvertsPage.class)
-                .verifyUserSettingsAreOpen()
-                .verifyUploadedPhoto();
+                .clickUserMsgBtn()
+                .verifyUserMsgBox()
+                .verifyUserMsgBoxText()
+                .clickCloseUserMsgBtn();
     }
 
     @AfterMethod

@@ -8,7 +8,7 @@ import pageObjects.av.HomePage;
 import pageObjects.av.LoginPage;
 import pageObjects.baseObjects.BaseTest;
 
-public class addingAndRemovingTest extends BaseTest {
+public class AddingAndRemovingTest extends BaseTest {
 
     @BeforeTest
     public void openPage() {

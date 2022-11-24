@@ -2,4 +2,4 @@
 /target
 .*iml
 /build
-/allure-results
+/allure-report

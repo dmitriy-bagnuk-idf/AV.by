@@ -26,7 +26,7 @@ public abstract class BasePage {
 
     protected BasePage() {
         driver = getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         actions = new Actions(driver);
         properties = getProperties();
     }

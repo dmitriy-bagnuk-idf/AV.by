@@ -8,7 +8,7 @@ import pageObjects.av.*;
 import pageObjects.baseObjects.BaseTest;
 
 @Log4j
-public class apiTest extends BaseTest {
+public class ApiTest extends BaseTest {
     @BeforeTest
     public void openPage() {
         get(HomePage.class)
