@@ -23,7 +23,7 @@ public class ApiTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Comparison phone number from user setting and API",
+    @Test(description = "Comparison phone number from user setting and API",
             priority = 1,
             enabled = true)
     public void loginApi() {
@@ -37,7 +37,7 @@ public class ApiTest extends BaseTest {
                 .contains(get(ApiPage.class).getPhoneNumberFromApi()));
     }
 
-    @Test(testName = "Comparison brand from car ad and API",
+    @Test(description = "Comparison brand from car ad and API",
             priority = 2,
             enabled = true)
     public void brandCarApi() {
@@ -49,7 +49,7 @@ public class ApiTest extends BaseTest {
                 .contains(get(ApiPage.class).getBrandCarFromApi()));
     }
 
-    @Test(testName = "Comparison total views from car ad and API",
+    @Test(description = "Comparison total views from car ad and API",
             priority = 3,
             enabled = true)
     public void viewsCarApi() {
@@ -61,7 +61,7 @@ public class ApiTest extends BaseTest {
                 .contains(get(ApiPage.class).getTotalViewsCarFromApi()));
     }
 
-    @Test(testName = "Comparison count top cars from home page and API",
+    @Test(description = "Comparison count top cars from home page and API",
             priority = 4,
             enabled = true)
     public void countTopCarsApi() {

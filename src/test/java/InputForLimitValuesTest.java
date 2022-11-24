@@ -24,7 +24,7 @@ public class InputForLimitValuesTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Checking the new password field for boundary values",
+    @Test(description = "Checking the new password field for boundary values",
             dataProviderClass = dataForAVby.class,
             dataProvider = "password data",
             enabled = true)

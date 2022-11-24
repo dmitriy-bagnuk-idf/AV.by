@@ -6,13 +6,13 @@
         <listener class-name="testNgUtils.InvokedMethodListener"/>
     </listeners>
 
-    <test name="Adding and removing entity test" enabled="true">
+    <test name="Adding and removing entity test" enabled="false">
         <classes>
             <class name="AddingAndRemovingTest"/>
         </classes>
     </test>
 
-    <test name="Popup message test" enabled="true">
+    <test name="Popup message test" enabled="false">
         <classes>
             <class name="PopupMsgTest"/>
         </classes>
@@ -24,13 +24,13 @@
         </classes>
     </test>
 
-    <test name="Upload file test" enabled="true">
+    <test name="Upload file test" enabled="false">
         <classes>
             <class name="UploadFileTest"/>
         </classes>
     </test>
 
-    <test name="Invalid data test" enabled="true">
+    <test name="Invalid data test" enabled="false">
         <classes>
             <class name="InvalidDataTest"/>
         </classes>
@@ -48,7 +48,7 @@
         </classes>
     </test>
 
-    <test name="Input for limit values test" enabled="true">
+    <test name="Input for limit values test" enabled="false">
         <classes>
             <class name="InputForLimitValuesTest"/>
         </classes>

@@ -25,7 +25,7 @@ public class AddingAndRemovingTest extends BaseTest {
     }
 
 
-    @Test(testName = "Adding one car to bookmarks from top cars on homepage",
+    @Test(description = "Adding one car to bookmarks from top cars on homepage",
             priority = 1,
             enabled = true)
     public void addCarTest() {
@@ -41,7 +41,7 @@ public class AddingAndRemovingTest extends BaseTest {
         Assert.assertEquals(get(BookmarksPage.class).nameCarInBookmarks(), nameInterestingTodayCar);
     }
 
-    @Test(testName = "Deleting one car from bookmarks",
+    @Test(description = "Deleting one car from bookmarks",
             dependsOnMethods = "addCarTest",
             priority = 2,
             enabled = true)
@@ -55,7 +55,7 @@ public class AddingAndRemovingTest extends BaseTest {
                 .verifyBookmarksAreEmpty();
     }
 
-    @Test(testName = "Adding all cars to bookmarks from top listings",
+    @Test(description = "Adding all cars to bookmarks from top listings",
             dependsOnMethods = "deleteCar",
             priority = 3,
             enabled = true)
@@ -72,7 +72,7 @@ public class AddingAndRemovingTest extends BaseTest {
         Assert.assertEquals(get(BookmarksPage.class).countCarsInBookmarks(), countCarsToBookmark);
     }
 
-    @Test(testName = "Deleting all cars from bookmarks",
+    @Test(description = "Deleting all cars from bookmarks",
             dependsOnMethods = "addCarsTest",
             priority = 4,
             enabled = true)

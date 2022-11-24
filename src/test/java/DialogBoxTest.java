@@ -22,7 +22,7 @@ public class DialogBoxTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Car price changes dialog box display",
+    @Test(description = "Car price changes dialog box display",
             priority = 1,
             enabled = true)
     public void carDialogBoxTest() {
@@ -35,7 +35,7 @@ public class DialogBoxTest extends BaseTest {
                 .clickClosePriceChangesBoxBtn();
     }
 
-    @Test(testName = "Use message dialog box display",
+    @Test(description = "Use message dialog box display",
             priority = 2,
             enabled = true)
     public void userMsgDialogBoxTest() {

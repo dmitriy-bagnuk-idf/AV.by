@@ -22,7 +22,7 @@ public class UploadFileTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Upload new photo to the user ad",
+    @Test(description = "Upload new photo to the user ad",
             enabled = true)
     public void uploadTest() {
         get(HomePage.class)

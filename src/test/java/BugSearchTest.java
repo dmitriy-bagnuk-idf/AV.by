@@ -23,7 +23,7 @@ public class BugSearchTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Old psw hide switch in the user settings (bug search)",
+    @Test(description = "Old psw hide switch in the user settings (bug search)",
             priority = 1,
             enabled = true)
     public void oldPswHideSwitch() {
@@ -40,7 +40,7 @@ public class BugSearchTest extends BaseTest {
 
     }
 
-    @Test(testName = "New psw hide switch in the user settings (bug search)",
+    @Test(description = "New psw hide switch in the user settings (bug search)",
             priority = 2,
             enabled = true)
     public void newPswHideSwitch() {

@@ -24,7 +24,7 @@ public class PopupMsgTest extends BaseTest {
                 .loginWithEmail();
     }
 
-    @Test(testName = "Popup message when adding car to bookmarks",
+    @Test(description = "Popup message when adding car to bookmarks",
             priority = 1,
             enabled = true)
     public void popupMsgHomeTest() {
@@ -33,7 +33,7 @@ public class PopupMsgTest extends BaseTest {
                 .verifyPopupMsg();
     }
 
-    @Test(testName = "Popup message when removed car from bookmarks",
+    @Test(description = "Popup message when removed car from bookmarks",
             priority = 2,
             dependsOnMethods = "popupMsgHomeTest",
             enabled = true)
@@ -47,7 +47,7 @@ public class PopupMsgTest extends BaseTest {
                 .verifyPopupMsg();
     }
 
-    @Test(testName = "Popup message when when changing password",
+    @Test(description = "Popup message when when changing password",
             priority = 3,
             enabled = true)
     public void popupMsgUserSettingsTest() {

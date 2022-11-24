@@ -22,7 +22,7 @@ public class InvalidDataTest extends BaseTest {
                 .clickChangePhoneNumberBtn();
     }
 
-    @Test(testName = "Change user phone number with invalid and exceeding allowed data",
+    @Test(description = "Change user phone number with invalid and exceeding allowed data",
             dataProviderClass = dataForAVby.class,
             dataProvider = "phone number data",
             priority = 1,
