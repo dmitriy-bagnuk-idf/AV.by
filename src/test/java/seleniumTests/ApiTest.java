@@ -1,11 +1,15 @@
+package seleniumTests;
+
 import lombok.extern.log4j.Log4j;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.*;
+import pageObjects.avSelenium.*;
 import pageObjects.baseObjects.BaseTest;
+import restAPI.avApi;
+import steps.CheckOpenPageSteps;
 
 @Log4j
 public class ApiTest extends BaseTest {
@@ -29,12 +33,12 @@ public class ApiTest extends BaseTest {
     public void loginApi() {
         get(HomePage.class)
                 .goToUserSettings();
-        get(UserSettingsPage.class)
+        get(CheckOpenPageSteps.class)
                 .verifyUserSettingsAreOpen();
         log.debug("Comparison phone number from user setting and API");
         Assert.assertTrue(get(UserSettingsPage.class)
                 .getPhoneNumber()
-                .contains(get(ApiPage.class).getPhoneNumberFromApi()));
+                .contains(get(avApi.class).getPhoneNumberFromApi()));
     }
 
     @Test(description = "Comparison brand from car ad and API",
@@ -46,7 +50,7 @@ public class ApiTest extends BaseTest {
         log.debug("Comparison brand from car ad and API");
         Assert.assertTrue(get(CarPage.class)
                 .getCarDescription()
-                .contains(get(ApiPage.class).getBrandCarFromApi()));
+                .contains(get(avApi.class).getBrandCarFromApi()));
     }
 
     @Test(description = "Comparison total views from car ad and API",
@@ -58,7 +62,7 @@ public class ApiTest extends BaseTest {
         log.debug("Comparison total views from car ad and API");
         Assert.assertTrue(get(CarPage.class)
                 .getCarViews()
-                .contains(get(ApiPage.class).getTotalViewsCarFromApi()));
+                .contains(get(avApi.class).getTotalViewsCarFromApi()));
     }
 
     @Test(description = "Comparison count top cars from home page and API",
@@ -68,7 +72,7 @@ public class ApiTest extends BaseTest {
         get(HomePage.class)
                 .clickTopCarsBtn();
         log.debug("Comparison count top cars from home page and API");
-        Assert.assertEquals(get(HomePage.class).countTopCars(), get(ApiPage.class).getCountPopCarsApi());
+        Assert.assertEquals(get(HomePage.class).countTopCars(), get(avApi.class).getCountPopCarsApi());
     }
 
     @AfterMethod

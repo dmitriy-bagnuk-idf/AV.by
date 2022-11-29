@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AV test with Selenium">
+
+    <test name="Login test" enabled="true">
+        <classes>
+            <class name="selenideTests.LoginSelenideTest"/>
+        </classes>
+    </test>
+
+    <test name="Dialog box test" enabled="true">
+        <classes>
+            <class name="selenideTests.DialogBoxSelenideTest"/>
+        </classes>
+    </test>
+
+</suite>

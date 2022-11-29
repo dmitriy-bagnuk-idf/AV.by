@@ -1,16 +1,12 @@
-package pageObjects.av;
+package pageObjects.avSelenium;
 
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
-import java.util.ArrayList;
-
 @Log4j
 public class UserAdvertsPage extends BasePage {
-    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-    HomePage homePage = new HomePage();
     private final By editAdBtn = By.xpath("//a[contains(@href, 'edit')]");
     private final By selectPhotoToAdBtn = By.id("p-48-photo");
     private final By saveAdChangesBtn = By.xpath("//button[@type='submit']");
@@ -19,23 +15,6 @@ public class UserAdvertsPage extends BasePage {
     private final By adBtn = By.xpath("//div[@class='mycard__header']");
     private final By previewPhotoInTheAd = By.xpath("//div[@class='mycard__photo-image']");
     private final By logo = By.xpath("//div[@class='header__logo']");
-
-    public UserAdvertsPage verifyUserSettingsAreOpen() {
-        if (getPageUrl().contains("offers")) {
-            log.debug("User adverts page is opened");
-            Assert.assertTrue(getPageUrl().contains("offers"));
-        } else {
-            log.debug("Extra tab open");
-            driver.switchTo().window(tabs.get(1));
-            driver.close();
-            driver.switchTo().window(tabs.get(0));
-            log.debug("Extra tab closed");
-            homePage.goToUserSettings();
-            log.debug("User adverts page is opened");
-            Assert.assertTrue(getPageUrl().contains("offers"));
-        }
-        return this;
-    }
 
     public UserAdvertsPage clickEditAdBtn() {
         log.debug("Click edit ad btn");

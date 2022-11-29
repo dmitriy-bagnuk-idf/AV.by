@@ -1,4 +1,4 @@
-package pageObjects.av.dataProvider;
+package dataProvider;
 
 import org.testng.annotations.DataProvider;
 

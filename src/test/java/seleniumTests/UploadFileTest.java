@@ -1,11 +1,14 @@
+package seleniumTests;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.HomePage;
-import pageObjects.av.LoginPage;
-import pageObjects.av.UserAdvertsPage;
+import pageObjects.avSelenium.HomePage;
+import pageObjects.avSelenium.LoginPage;
+import pageObjects.avSelenium.UserAdvertsPage;
 import pageObjects.baseObjects.BaseTest;
+import steps.CheckOpenPageSteps;
 
 public class UploadFileTest extends BaseTest {
     @BeforeTest
@@ -27,16 +30,18 @@ public class UploadFileTest extends BaseTest {
     public void uploadTest() {
         get(HomePage.class)
                 .goToUserAd();
+        get(CheckOpenPageSteps.class)
+                .verifyUserAdvertsAreOpen();
         get(UserAdvertsPage.class)
-                .verifyUserSettingsAreOpen()
                 .verifyPhotoNotExistInTheAd()
                 .clickEditAdBtn()
                 .uploadPhotoToAd()
                 .clickSaveAdChangesBtn();
         get(HomePage.class)
                 .goToUserAd();
+        get(CheckOpenPageSteps.class)
+                .verifyUserAdvertsAreOpen();
         get(UserAdvertsPage.class)
-                .verifyUserSettingsAreOpen()
                 .verifyUploadedPhoto();
     }
 

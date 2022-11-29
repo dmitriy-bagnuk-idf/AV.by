@@ -1,12 +1,15 @@
+package seleniumTests;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.BookmarksPage;
-import pageObjects.av.HomePage;
-import pageObjects.av.LoginPage;
-import pageObjects.av.UserSettingsPage;
+import pageObjects.avSelenium.BookmarksPage;
+import pageObjects.avSelenium.HomePage;
+import pageObjects.avSelenium.LoginPage;
+import pageObjects.avSelenium.UserSettingsPage;
 import pageObjects.baseObjects.BaseTest;
+import steps.CheckOpenPageSteps;
 
 public class PopupMsgTest extends BaseTest {
 
@@ -40,8 +43,9 @@ public class PopupMsgTest extends BaseTest {
     public void popupMsgBookmarksTest() {
         get(HomePage.class)
                 .goToBookmarks();
+        get(CheckOpenPageSteps.class)
+                .verifyBookmarksAreOpen();
         get(BookmarksPage.class)
-                .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
                 .deleteAllCarsFromBookmarks()
                 .verifyPopupMsg();
@@ -53,8 +57,9 @@ public class PopupMsgTest extends BaseTest {
     public void popupMsgUserSettingsTest() {
         get(HomePage.class)
                 .goToUserSettings();
+        get(CheckOpenPageSteps.class)
+                .verifyUserSettingsAreOpen();
         get(UserSettingsPage.class)
-                .verifyUserSettingsAreOpen()
                 .changePsw(properties.getProperty("password"))
                 .verifyPopupMsg();
     }

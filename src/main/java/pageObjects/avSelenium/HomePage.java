@@ -1,8 +1,7 @@
-package pageObjects.av;
+package pageObjects.avSelenium;
 
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
@@ -10,11 +9,9 @@ import java.util.ArrayList;
 
 @Log4j
 public class HomePage extends BasePage {
-    private final Actions actions = new Actions(driver);
     ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
     private final By closeMsgBtn = By.xpath("//span[text()='Закрыть']");
-    private final By cookieBtn = By.xpath("(//div[contains(@class, 'cookie')])[3]");
-    //private final By loginBtn = By.xpath("//li[contains(@class, 'login')]");
+    private final By cookieBtn = By.xpath("//div[contains(@class,'cookie')]/button");
     private final By loginBtn = By.xpath("//a[@href='/login']");
     private final By bookmarksBtn = By.xpath("//li[contains(@class, 'bookmarks')]");
     private final By topCarsBtn = By.partialLinkText("все объявления");
@@ -136,11 +133,14 @@ public class HomePage extends BasePage {
     public HomePage logout() {
         log.debug("LogOut");
         waitVisibilityElement(userMenu);
+        waitUntil(3);
         verifyElementClickable(userMenu);
         actions
                 .moveToElement(findElement(userMenu))
                 .build()
                 .perform();
+        waitUntil(3);
+        waitVisibilityElement(logoutBtn);
         click(logoutBtn);
         clickLogo();
         verifyHomePageIsOpen();

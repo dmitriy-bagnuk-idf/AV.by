@@ -1,7 +1,8 @@
-package pageObjects.av;
+package restAPI;
 
 import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j;
+import pageObjects.avSelenium.CarPage;
 import pageObjects.baseObjects.BasePage;
 
 import java.io.IOException;
@@ -10,20 +11,22 @@ import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 
+
 @Log4j
-public class ApiPage extends BasePage {
+public class avApi extends BasePage {
     CarPage carPage = new CarPage();
     String phoneNumberApi;
     String brandCarApi;
     String totalViewsCarApi;
     int countTopCarsApi;
+    String apiURI = properties.getProperty("apiURI");
 
     public String getPhoneNumberFromApi() {
         log.debug("Get phone number from api when logging in");
         Response response = given()
                 .header("Content-Type", "application/json")
                 .body(getJsonData("av"))
-                .post("https://api.av.by/auth/login/sign-in");
+                .post(apiURI + "auth/login/sign-in");
         response
                 .then()
                 .assertThat()
@@ -37,7 +40,7 @@ public class ApiPage extends BasePage {
     public String getBrandCarFromApi() {
         log.debug("Get brand car from api");
         Response response = given()
-                .get("https://api.av.by/offer-types/cars/price-statistics/offers/" + carPage.getCarNumberAd());
+                .get(apiURI + "offer-types/cars/price-statistics/offers/" + carPage.getCarNumberAd());
         response
                 .then()
                 .assertThat()
@@ -51,7 +54,7 @@ public class ApiPage extends BasePage {
     public String  getTotalViewsCarFromApi() {
         log.debug("Get total views from api");
         Response response = given()
-                .get("https://api.av.by/offers/" + carPage.getCarNumberAd() + "/counter");
+                .get(apiURI + "offers/" + carPage.getCarNumberAd() + "/counter");
         response
                 .then()
                 .assertThat()
@@ -65,7 +68,7 @@ public class ApiPage extends BasePage {
     public Integer getCountPopCarsApi() {
         log.debug("Get count top car from api");
         Response response = given()
-                .get("https://api.av.by/offer-types/cars/offers/top");
+                .get(apiURI + "offer-types/cars/offers/top");
         response
                 .then()
                 .assertThat()

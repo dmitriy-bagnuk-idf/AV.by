@@ -1,10 +1,12 @@
+package seleniumTests;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.CarPage;
-import pageObjects.av.HomePage;
-import pageObjects.av.LoginPage;
+import pageObjects.avSelenium.CarPage;
+import pageObjects.avSelenium.HomePage;
+import pageObjects.avSelenium.LoginPage;
 import pageObjects.baseObjects.BaseTest;
 
 public class DialogBoxTest extends BaseTest {
@@ -35,7 +37,7 @@ public class DialogBoxTest extends BaseTest {
                 .clickClosePriceChangesBoxBtn();
     }
 
-    @Test(description = "Use message dialog box display",
+    @Test(description = "User message dialog box display",
             priority = 2,
             enabled = true)
     public void userMsgDialogBoxTest() {

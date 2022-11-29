@@ -1,12 +1,15 @@
+package seleniumTests;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.HomePage;
-import pageObjects.av.LoginPage;
-import pageObjects.av.UserSettingsPage;
-import pageObjects.av.dataProvider.dataForAVby;
+import pageObjects.avSelenium.HomePage;
+import pageObjects.avSelenium.LoginPage;
+import pageObjects.avSelenium.UserSettingsPage;
+import dataProvider.dataForAVby;
 import pageObjects.baseObjects.BaseTest;
+import steps.CheckOpenPageSteps;
 
 public class InputForLimitValuesTest extends BaseTest {
     @BeforeTest
@@ -31,8 +34,9 @@ public class InputForLimitValuesTest extends BaseTest {
     public void limitValuesTest(String password) {
         get(HomePage.class)
                 .goToUserSettings();
+        get(CheckOpenPageSteps.class)
+                .verifyUserSettingsAreOpen();
         get(UserSettingsPage.class)
-                .verifyUserSettingsAreOpen()
                 .enterDataInNewPswField(password);
     }
 

@@ -1,12 +1,15 @@
+package seleniumTests;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.av.BookmarksPage;
-import pageObjects.av.HomePage;
-import pageObjects.av.LoginPage;
+import pageObjects.avSelenium.BookmarksPage;
+import pageObjects.avSelenium.HomePage;
+import pageObjects.avSelenium.LoginPage;
 import pageObjects.baseObjects.BaseTest;
+import steps.CheckOpenPageSteps;
 
 public class AddingAndRemovingTest extends BaseTest {
 
@@ -34,8 +37,9 @@ public class AddingAndRemovingTest extends BaseTest {
         String nameInterestingTodayCar = get(HomePage.class).nameInterestingTodayCar();
         get(HomePage.class)
                 .goToBookmarks();
+        get(CheckOpenPageSteps.class)
+                .verifyBookmarksAreOpen();
         get(BookmarksPage.class)
-                .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
                 .verifyCounterBookmarks();
         Assert.assertEquals(get(BookmarksPage.class).nameCarInBookmarks(), nameInterestingTodayCar);
@@ -48,8 +52,9 @@ public class AddingAndRemovingTest extends BaseTest {
     public void deleteCar() {
         get(HomePage.class)
                 .goToBookmarks();
+        get(CheckOpenPageSteps.class)
+                .verifyBookmarksAreOpen();
         get(BookmarksPage.class)
-                .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
                 .deleteAllCarsFromBookmarks()
                 .verifyBookmarksAreEmpty();
@@ -79,8 +84,9 @@ public class AddingAndRemovingTest extends BaseTest {
     public void deleteCarsTest() {
         get(HomePage.class)
                 .goToBookmarks();
+        get(CheckOpenPageSteps.class)
+                .verifyBookmarksAreOpen();
         get(BookmarksPage.class)
-                .verifyBookmarksAreOpen()
                 .verifyBookmarksAreNotEmpty()
                 .deleteAllCarsFromBookmarks()
                 .verifyBookmarksAreEmpty();

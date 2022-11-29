@@ -1,4 +1,4 @@
-package pageObjects.av;
+package pageObjects.avSelenium;
 
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
@@ -6,7 +6,6 @@ import pageObjects.baseObjects.BasePage;
 
 @Log4j
 public class LoginPage extends BasePage {
-    private final By entryByNumberPhone = By.xpath("(//button[contains(text(),'телефон')])[1]");
     private final By entryByEmail = By.xpath("//button[contains(text(),'логин')]");
     private final By email = By.id("authLogin");
     private final By password = By.id("loginPassword");

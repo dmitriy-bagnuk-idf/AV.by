@@ -1,16 +1,12 @@
-package pageObjects.av;
+package pageObjects.avSelenium;
 
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import pageObjects.baseObjects.BasePage;
 
-import java.util.ArrayList;
-
 @Log4j
 public class UserSettingsPage extends BasePage {
-    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-    HomePage homePage = new HomePage();
     private final By changePswBtn = By.xpath("//a[contains(@href, 'password')]");
     private final By oldPsw = By.id("old-password");
     private final By newPsw = By.id("new-password");
@@ -20,26 +16,9 @@ public class UserSettingsPage extends BasePage {
     private final By changePhoneNumberBtn = By.xpath("//a[contains(@href, 'phone')]");
     private final By acceptPhoneNumberBtn = By.xpath("//button[contains(@class, 'primary')] ");
     private final By newPhoneNumber = By.id("phoneNumber");
-    private final By hideSwitchOldPswBtn = By.xpath("(//button[contains(@class, 'toggle')])[1]");
-    private final By hideSwitchNewPswBtn = By.xpath("(//button[contains(@class, 'toggle')])[2]");
+    private final By hideSwitchOldPswBtn = By.xpath("//label[@for='old-password']/../button");
+    private final By hideSwitchNewPswBtn = By.xpath("//label[@for='new-password']/../button");
     private final By phoneNumber = By.xpath("//div/b[contains(text(), '375')]");
-
-    public UserSettingsPage verifyUserSettingsAreOpen() {
-        if (getPageUrl().contains("settings")) {
-            log.debug("User settings page is opened");
-            Assert.assertTrue(getPageUrl().contains("settings"));
-        } else {
-            log.debug("Extra tab open");
-            driver.switchTo().window(tabs.get(1));
-            driver.close();
-            driver.switchTo().window(tabs.get(0));
-            log.debug("Extra tab closed");
-            homePage.goToUserSettings();
-            log.debug("User settings page is opened");
-            Assert.assertTrue(getPageUrl().contains("settings"));
-        }
-        return this;
-    }
 
     public UserSettingsPage clickChangePswBtn() {
         log.debug("Click change password btn");
