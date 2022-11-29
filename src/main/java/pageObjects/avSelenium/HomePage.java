@@ -132,7 +132,7 @@ public class HomePage extends BasePage {
 
     public HomePage logout() {
         log.debug("LogOut");
-        waitVisibilityElement(userMenu);
+        //waitVisibilityElement(userMenu);
         waitUntil(3);
         verifyElementClickable(userMenu);
         actions
