@@ -70,7 +70,7 @@ public abstract class BasePage {
 
     protected void enter(By locator, CharSequence... enterData) {
         log.debug("I enter :: " + enterData + ", by locator :: " + locator);
-        findElement(locator).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+        findElement(locator).sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
         findElement(locator).sendKeys(enterData);
     }
 
