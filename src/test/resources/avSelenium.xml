@@ -43,13 +43,13 @@
         </classes>
     </test>
 
-    <test name="API test" enabled="true">
+    <test name="API test" enabled="false">
         <classes>
             <class name="seleniumTests.ApiTest"/>
         </classes>
     </test>
 
-    <test name="Input for limit values test" enabled="false">
+    <test name="Input for limit values test" enabled="true">
         <classes>
             <class name="seleniumTests.InputForLimitValuesTest"/>
         </classes>
