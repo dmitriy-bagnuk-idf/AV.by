@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                bat 'mvn clean test -DsuiteXml=avSelenium -Dconfig=av'
+                bat 'mvn clean test -DsuiteXml="${SUITE}" -Dconfig=av'
             }
         }
     }
