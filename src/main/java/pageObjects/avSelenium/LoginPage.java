@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage enterEmail() {
         log.debug("Enter email");
-        enter(this.email, properties.getProperty("email"));
+        enter(this.email, "qatest808080@gmail.com");
         return this;
     }
 
