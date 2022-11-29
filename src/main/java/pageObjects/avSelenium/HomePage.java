@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     private final By topCarsBtn = By.partialLinkText("все объявления");
     private final By carToBookmarkBtn = By.xpath("//button[@class='bookmark']");
     private final By logo = By.xpath("//div[@class='header__logo']");
-    private final By userMenu = By.xpath("//li[contains(@class, 'user')]");
+    private final By userMenu = By.xpath("//li[contains(@class, 'user')]/a[contains(@href, 'profile')]");
     private final By logoutBtn = By.xpath("//a[contains(@class, 'logout')]");
     private final By userSettingsBtn = By.xpath("//a[contains(@href, 'settings')]");
     private final By popup = By.xpath("//div[contains(@class, 'opened')]");
