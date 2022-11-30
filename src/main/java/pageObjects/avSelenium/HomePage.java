@@ -11,8 +11,7 @@ import java.util.ArrayList;
 public class HomePage extends BasePage {
     ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
     private final By closeMsgBtn = By.xpath("//span[text()='Закрыть']");
-    //private final By cookieBtn = By.xpath("//div[contains(@class,'cookie')]/button");
-    private final By cookieBtn = By.xpath("//div[@class='cookie-banner__action']");
+    private final By cookieBtn = By.xpath("//div[@class='cookie-banner__action']/button");
     private final By loginBtn = By.xpath("//a[@href='/login']");
     private final By bookmarksBtn = By.xpath("//li[contains(@class, 'bookmarks')]");
     private final By topCarsBtn = By.partialLinkText("все объявления");
@@ -44,13 +43,12 @@ public class HomePage extends BasePage {
         if (findElement(closeMsgBtn).isDisplayed()) {
             log.debug("Welcome message is displayed");
             click(closeMsgBtn);
-            click(cookieBtn);
             verifyPageIsOpen();
         } else {
             log.debug("Welcome message is not displayed");
-            click(cookieBtn);
             verifyPageIsOpen();
         }
+        click(cookieBtn);
         return this;
     }
 
