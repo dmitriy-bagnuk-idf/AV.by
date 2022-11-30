@@ -48,7 +48,12 @@ public class HomePage extends BasePage {
             log.debug("Welcome message is not displayed");
             verifyPageIsOpen();
         }
-        click(cookieBtn);
+        if (findElement(cookieBtn).isDisplayed()) {
+            log.debug("Accept cookie");
+            click(cookieBtn);
+        } else {
+            log.debug("No cookie");
+        }
         return this;
     }
 
