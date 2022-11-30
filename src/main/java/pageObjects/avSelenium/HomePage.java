@@ -43,13 +43,13 @@ public class HomePage extends BasePage {
         if (findElement(closeMsgBtn).isDisplayed()) {
             log.debug("Welcome message is displayed");
             click(closeMsgBtn);
+            click(cookieBtn);
             verifyPageIsOpen();
         } else {
             log.debug("Welcome message is not displayed");
+            click(cookieBtn);
             verifyPageIsOpen();
         }
-        waitVisibilityElement(cookieBtn);
-        click(cookieBtn);
         return this;
     }
 
