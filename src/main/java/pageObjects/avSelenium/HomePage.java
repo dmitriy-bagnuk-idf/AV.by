@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class HomePage extends BasePage {
     ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
     private final By closeMsgBtn = By.xpath("//span[text()='Закрыть']");
-    private final By cookieBtn = By.xpath("//div[contains(@class,'cookie')]/button");
+    //private final By cookieBtn = By.xpath("//div[contains(@class,'cookie')]/button");
+    private final By cookieBtn = By.xpath("//div[@class='cookie-banner__action']");
     private final By loginBtn = By.xpath("//a[@href='/login']");
     private final By bookmarksBtn = By.xpath("//li[contains(@class, 'bookmarks')]");
     private final By topCarsBtn = By.partialLinkText("все объявления");
