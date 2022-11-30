@@ -42,11 +42,16 @@ public class UploadFileTest extends BaseTest {
         get(CheckOpenPageSteps.class)
                 .verifyUserAdvertsAreOpen();
         get(UserAdvertsPage.class)
-                .verifyUploadedPhoto();
+                .clickAdBtn()
+                .verifyUploadedPhotoInTheAd();
     }
 
     @AfterMethod
     public void postconditions() {
+        get(HomePage.class)
+                .goToUserAd();
+        get(UserAdvertsPage.class)
+                .deletePhotoFromTheAd();
         get(HomePage.class)
                 .logout();
     }

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="AV test with Selenium" thread-count="1" parallel="tests">
+<suite name="AV tests with Selenium" thread-count="1" parallel="tests">
 
     <listeners>
         <listener class-name="testNgUtils.InvokedMethodListener"/>
     </listeners>
 
-    <test name="Adding and removing entity test" enabled="true">
+    <test name="Adding and removing entity test" enabled="false">
         <classes>
             <class name="seleniumTests.AddingAndRemovingTest"/>
         </classes>
     </test>
 
-    <test name="Popup message test" enabled="true">
+    <test name="Popup message test" enabled="false">
         <classes>
             <class name="seleniumTests.PopupMsgTest"/>
         </classes>
     </test>
 
-    <test name="Dialog box test" enabled="true">
+    <test name="Dialog box test" enabled="false">
         <classes>
             <class name="seleniumTests.DialogBoxTest"/>
         </classes>
@@ -31,25 +31,25 @@
         </classes>
     </test>
 
-    <test name="Invalid data test" enabled="true">
+    <test name="Invalid data test" enabled="false">
         <classes>
             <class name="seleniumTests.InvalidDataTest"/>
         </classes>
     </test>
 
-    <test name="Bug search test" enabled="true">
+    <test name="Bug search test" enabled="false">
         <classes>
             <class name="seleniumTests.BugSearchTest"/>
         </classes>
     </test>
 
-    <test name="API test" enabled="true">
+    <test name="API test" enabled="false">
         <classes>
             <class name="seleniumTests.ApiTest"/>
         </classes>
     </test>
 
-    <test name="Input for limit values test" enabled="true">
+    <test name="Input for limit values test" enabled="false">
         <classes>
             <class name="seleniumTests.InputForLimitValuesTest"/>
         </classes>
