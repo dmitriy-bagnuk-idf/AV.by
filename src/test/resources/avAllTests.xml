@@ -3,8 +3,11 @@
 <suite name="AV all tests ">
 
     <suite-files>
-        <suite-file path="avSelenium.xml"/>
         <suite-file path="avSelenide.xml"/>
+    </suite-files>
+
+    <suite-files>
+        <suite-file path="avSelenium.xml"/>
     </suite-files>
 
 </suite>
