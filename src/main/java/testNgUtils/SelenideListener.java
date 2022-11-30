@@ -16,5 +16,6 @@ public class SelenideListener implements ITestListener {
                 .getParameter("config") == null ? System.getProperty("config") : context.getSuite().getParameter("config");
         new PropertyReader(propertyName);
         Configuration.baseUrl = getProperties().getProperty("url");
+        Configuration.browser = getProperties().getProperty("browser");
     }
 }
