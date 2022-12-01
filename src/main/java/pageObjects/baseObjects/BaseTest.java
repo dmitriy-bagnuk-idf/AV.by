@@ -26,7 +26,7 @@ public abstract class BaseTest {
         log.debug("I'm started new webDriver!");
         properties = getProperties();
         System.out.println(properties.containsKey("browser"));
-        getManager(DriverManagerType.valueOf(properties.getProperty("browser")));
+        getManager(DriverManagerType.valueOf(properties.containsKey("browser") ? properties.getProperty("browser").toUpperCase() : "CHROME"));
     }
 
     protected <T> T get(Class<T> page) {
