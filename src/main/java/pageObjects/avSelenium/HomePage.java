@@ -48,6 +48,7 @@ public class HomePage extends BasePage {
             log.debug("Welcome message is not displayed");
             verifyPageIsOpen();
         }
+        waitUntil(1);
         click(cookieBtn);
         return this;
     }
