@@ -159,6 +159,7 @@ public class HomePage extends BasePage {
 
     public HomePage verifyPopupMsg() {
         log.debug("Verify popup message");
+        waitUntil(1);
         Assert.assertTrue(findElement(popup).isDisplayed());
         return this;
     }

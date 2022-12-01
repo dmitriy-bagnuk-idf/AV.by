@@ -71,6 +71,7 @@ public class BookmarksPage extends BasePage {
 
     public BookmarksPage verifyPopupMsg() {
         log.debug("Verify popup message");
+        waitUntil(1);
         Assert.assertTrue(findElement(popup).isDisplayed());
         return this;
     }

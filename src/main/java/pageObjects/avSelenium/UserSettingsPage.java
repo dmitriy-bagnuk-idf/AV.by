@@ -58,6 +58,7 @@ public class UserSettingsPage extends BasePage {
 
     public UserSettingsPage verifyPopupMsg() {
         log.debug("Verify popup message");
+        waitUntil(1);
         Assert.assertTrue(findElement(popup).isDisplayed());
         return this;
     }
